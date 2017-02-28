@@ -1,0 +1,28 @@
+{
+    "name": "Postfix",
+    "package": "postfix",
+    "index": "www.postfix.org/postfix-manuals.html",
+    "icon32x32": "icon.png",
+    "externalURL": "http://www.postfix.org/postfix-manuals.html",
+    "selectors": {
+        "body>dl>dt a[name]": {
+            "type": "Variable",
+            "matchpath": ".*\\.[0-9]+\\.html$"
+        },
+        "head>title": {
+            "type": "Command",
+            "regexp": "^Postfix manual -[\\n\\t\\s]*",
+            "replacement": "",
+            "matchpath": ".*\\.[0-9]\\.html$"
+        },
+        "body>h1": {
+            "type": "Guide",
+            "regexp": ".*Postfix[\\n\\t\\s]+",
+            "replacement": "",
+            "matchpath": ".*_README\\.html$"
+        }
+    },
+    "ignore": [
+        "type:table"
+    ]
+}
