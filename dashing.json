@@ -6,23 +6,35 @@
     "externalURL": "http://www.postfix.org/postfix-manuals.html",
     "selectors": {
         "body>dl>dt a[name]": {
-            "type": "Variable",
+            "type": "Directive",
             "matchpath": ".*\\.[0-9]+\\.html$"
         },
         "head>title": {
             "type": "Command",
             "regexp": "^Postfix manual -[\\n\\t\\s]*",
             "replacement": "",
-            "matchpath": ".*\\.[0-9]\\.html$"
+            "matchpath": ".*\\.[0-9]+\\.html$"
         },
         "body>h1": {
             "type": "Guide",
-            "regexp": ".*Postfix[\\n\\t\\s]+",
+            "regexp": "(?:.*Postfix[\\n\\t\\s]+|[\\n\\t\\s]{2,}|\\n)",
             "replacement": "",
-            "matchpath": ".*_README\\.html$"
+            "matchpath": ".*\\.html$"
+        },
+        "body>h2": {
+            "type": "Guide",
+            "regexp": "(?:[\\n\\t\\s]{2,}|\\n)",
+            "replacement": " ",
+            "matchpath": ".*(?:\\.[0-9]+|_README)\\.html$"
         }
     },
     "ignore": [
-        "type:table"
+        "type:table",
+        "Postfix Configuration Parameters",
+        "Introduction",
+        "Overview",
+        "Purpose of this document",
+        "Commands",
+        "Daemon processes"
     ]
 }
