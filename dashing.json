@@ -9,6 +9,10 @@
             "type": "Directive",
             "matchpath": ".*\\.[0-9]+\\.html$"
         },
+        "body>dl>dd>dl>dt>b> a[name]": {
+            "type": "Parameter",
+            "matchpath": ".*\\.[0-9]+\\.html$"
+        },
         "head>title": {
             "type": "Command",
             "regexp": "^Postfix manual -[\\n\\t\\s]*",
